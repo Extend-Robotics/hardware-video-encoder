@@ -8,6 +8,7 @@ project(
 
 ## optionally point to your path or pass as -DFFMPEG_MODULE_PATH="..." from CLI
 # set(FFMPEG_MODULE_PATH "/home/meglickib/test/vcpkg/installed/x64-linux/share/ffmpeg")
+set(FFMPEG_MODULE_PATH "/home/extend/vcpkg/installed/arm64-linux/share/ffmpeg")
 
 if(DEFINED FFMPEG_MODULE_PATH) # point to custom FindFFMPEG.cmake with LGPL build
   list(APPEND CMAKE_MODULE_PATH ${FFMPEG_MODULE_PATH}) 
