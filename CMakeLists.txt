@@ -8,6 +8,7 @@ project(
 
 ## optionally point to your path or pass as -DFFMPEG_MODULE_PATH="..." from CLI
 # set(FFMPEG_MODULE_PATH "/home/meglickib/test/vcpkg/installed/x64-linux/share/ffmpeg")
+# set(FFMPEG_MODULE_PATH "/home/extend/vcpkg/installed/arm64-linux/share/ffmpeg")
 
 if(DEFINED FFMPEG_MODULE_PATH) # point to custom FindFFMPEG.cmake with LGPL build
   list(APPEND CMAKE_MODULE_PATH ${FFMPEG_MODULE_PATH}) 
@@ -22,6 +23,7 @@ endif()
 # build
 
 add_library(hve hve.c)
+target_include_directories(hve PRIVATE ${FFMPEG_INCLUDE_DIRS})
 target_link_libraries(hve ${FFMPEG_LIBRARIES})
 
 add_executable(hve-encode-raw-h264 examples/hve_encode_raw_h264.c)
